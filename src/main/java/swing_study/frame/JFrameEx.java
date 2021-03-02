@@ -14,7 +14,7 @@ import javax.swing.border.EmptyBorder;
 import swing_study.panel.Department;
 import swing_study.panel.DeptPanel;
 
-public class JPaneEx extends JFrame implements ActionListener {
+public class JFrameEx extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JButton setDept;
@@ -29,7 +29,7 @@ public class JPaneEx extends JFrame implements ActionListener {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					JPaneEx frame = new JPaneEx();
+					JFrameEx frame = new JFrameEx();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -41,7 +41,7 @@ public class JPaneEx extends JFrame implements ActionListener {
 	/**
 	 * Create the frame.
 	 */
-	public JPaneEx() {
+	public JFrameEx() {
 		initialize();
 	}
 
