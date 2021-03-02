@@ -18,6 +18,7 @@ public class JComponentEX extends JFrame implements ActionListener {
 	private JButton btn2;
 	private JButton btn3;
 	private JButton btn1;
+	private JButton btn_1;
 
 	/**
 	 * Launch the application.
@@ -38,10 +39,7 @@ public class JComponentEX extends JFrame implements ActionListener {
 		setContentPane(contentPane);
 		contentPane.setLayout(new GridLayout(0, 1, 0, 0));
 		
-		btn1 = new JButton("Magenta/Tellow Button");
-		btn1.setFont(new Font("Arial", Font.ITALIC, 20));
-		btn1.setForeground(Color.MAGENTA);
-		btn1.setBackground(Color.YELLOW);
+		btn1 = createBtn();
 		contentPane.add(btn1);
 	
 		btn2 = new JButton("disabled");
@@ -54,8 +52,19 @@ public class JComponentEX extends JFrame implements ActionListener {
 		contentPane.add(btn3);
 		
 	}
+	public JButton createBtn() {
+		btn_1 = new JButton("Magenta/Tellow Button");
+		btn_1.addActionListener(this);
+		btn_1.setFont(new Font("Arial", Font.ITALIC, 20));
+		btn_1.setForeground(Color.MAGENTA);
+		btn_1.setBackground(Color.YELLOW);
+		return btn_1;
+	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btn_1) {
+			actionPerformedBtn(e);
+		}
 		if (e.getSource() == btn2) {
 			actionPerformedBtn2(e);
 		}
@@ -77,15 +86,23 @@ public class JComponentEX extends JFrame implements ActionListener {
 	protected void actionPerformedBtn2(ActionEvent e) {
 		if(btn1 != null) {
 			contentPane.remove(btn1);
+			btn1 = null;
+			revalidate();
+		}else {
+			System.out.println(btn1);
+			btn1 = createBtn();
+			contentPane.add(btn1,0);
 			revalidate();
 			
-		}else {
-			if(btn1.isVisible()) {
-				btn1.setVisible(false);
-			}else {
-				btn1.setVisible(true);
-			}
 			
+			
+		}
+	}
+	protected void actionPerformedBtn(ActionEvent e) {
+		if(btn3.isVisible()) {
+			btn3.setVisible(false);
+		}else {
+			btn3.setVisible(true);
 		}
 	}
 }
