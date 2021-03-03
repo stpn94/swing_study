@@ -53,16 +53,16 @@ public class JComponentEX extends JFrame implements ActionListener {
 		
 	}
 	public JButton createBtn() {
-		btn_1 = new JButton("Magenta/Tellow Button");
-		btn_1.addActionListener(this);
-		btn_1.setFont(new Font("Arial", Font.ITALIC, 20));
-		btn_1.setForeground(Color.MAGENTA);
-		btn_1.setBackground(Color.YELLOW);
-		return btn_1;
+		btn1 = new JButton("Magenta/Tellow Button");
+		btn1.addActionListener(this);
+		btn1.setFont(new Font("Arial", Font.ITALIC, 20));
+		btn1.setForeground(Color.MAGENTA);
+		btn1.setBackground(Color.YELLOW);
+		return btn1;
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == btn_1) {
+		if (e.getSource() == btn1) {
 			actionPerformedBtn(e);
 		}
 		if (e.getSource() == btn2) {

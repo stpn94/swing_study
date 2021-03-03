@@ -7,7 +7,9 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import swing_study.Component.JButtonEx;
 import swing_study.Component.JComponentEX;
+import swing_study.Component.JLableEx;
 import swing_study.Layout.FrameLayout;
 import swing_study.Layout.LayoutGuBun;
 import swing_study.frame.ContentPaneEx;
@@ -20,6 +22,8 @@ import java.awt.event.ActionEvent;
 import javax.swing.border.TitledBorder;
 import javax.swing.BoxLayout;
 import java.awt.FlowLayout;
+import javax.swing.UIManager;
+import java.awt.Color;
 
 public class swingMain extends JFrame implements ActionListener {
 
@@ -32,10 +36,11 @@ public class swingMain extends JFrame implements ActionListener {
 	private JButton btnGridLayout;
 	private JButton btnAbsoluteLayout;
 	private JButton btnJComponent;
+	private JPanel pComponent1;
+	private JButton btn04;
+	private JButton btn05;
+	private JPanel PCheckRadio;
 
-	/**
-	 * Launch the application.
-	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -109,9 +114,32 @@ public class swingMain extends JFrame implements ActionListener {
 		btnJComponent = new JButton("JComponent");
 		btnJComponent.addActionListener(this);
 		contentPane.add(btnJComponent);
+		
+		pComponent1 = new JPanel();
+		pComponent1.setBorder(new TitledBorder(null, "JLabel & JToggleButton & JButton", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		contentPane.add(pComponent1);
+		pComponent1.setLayout(new GridLayout(0, 1, 0, 10));
+		
+		btn04 = new JButton("JLable");
+		btn04.addActionListener(this);
+		pComponent1.add(btn04);
+		
+		btn05 = new JButton("JButton & JToggleButton");
+		btn05.addActionListener(this);
+		pComponent1.add(btn05);
+		
+		PCheckRadio = new JPanel();
+		PCheckRadio.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "JCheckBox & JRadioBox", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		contentPane.add(PCheckRadio);
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btn05) {
+			actionPerformedBtn05(e);
+		}
+		if (e.getSource() == btn04) {
+			actionPerformedBtn04(e);
+		}
 		if (e.getSource() == btnJComponent) {
 			actionPerformedBtnJComponent(e);
 		}
@@ -186,4 +214,12 @@ public class swingMain extends JFrame implements ActionListener {
 		frame.setVisible(true);
 	}
 
+	protected void actionPerformedBtn04(ActionEvent e) {
+		JLableEx frame = new JLableEx();
+		frame.setVisible(true);
+	}
+	protected void actionPerformedBtn05(ActionEvent e) {
+		JButtonEx frame = new JButtonEx();
+		frame.setVisible(true);
+	}
 }
