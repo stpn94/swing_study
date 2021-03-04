@@ -20,14 +20,6 @@ public class JComponentEX extends JFrame implements ActionListener {
 	private JButton btn1;
 	private JButton btn_1;
 
-	/**
-	 * Launch the application.
-	 */
-	
-
-	/**
-	 * Create the frame.
-	 */
 	public JComponentEX() {
 		initialize();
 	}
