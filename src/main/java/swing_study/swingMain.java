@@ -21,6 +21,7 @@ import swing_study.Component.JCheckBoxEx;
 import swing_study.Component.JComponentEX;
 import swing_study.Component.JLableEx;
 import swing_study.Component.JRadioBtnEx;
+import swing_study.Component.JtextFieldAreaEx;
 import swing_study.Layout.FrameLayout;
 import swing_study.Layout.LayoutGuBun;
 import swing_study.frame.ContentPaneEx;
@@ -43,6 +44,8 @@ public class swingMain extends JFrame implements ActionListener {
 	private JPanel PCheckRadio;
 	private JButton btn06;
 	private JButton btn07;
+	private JPanel pText;
+	private JButton btnNewButton;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -56,17 +59,14 @@ public class swingMain extends JFrame implements ActionListener {
 			}
 		});
 	}
-
-	/**
-	 * Create the frame.
-	 */
+	
 	public swingMain() {
 		initialize();
 	}
 
 	private void initialize() {
 		setTitle("스윙 스터티");
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(10, 10, 700, 450);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -146,10 +146,18 @@ public class swingMain extends JFrame implements ActionListener {
 		btn07 = new JButton("JRadioButton");
 		btn07.addActionListener(this);
 		PCheckRadio.add(btn07);
+		
+		pText = new JPanel();
+		pText.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "TextBox", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
+		contentPane.add(pText);
+		
+		btnNewButton = new JButton("New button");
+		btnNewButton.addActionListener(this);
+		pText.add(btnNewButton);
 	}
 
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == btn07) {
+		if (e.getSource() == btnNewButton) {
 			actionPerformedBtnNewButton(e);
 		}
 		if (e.getSource() == btn06) {
@@ -258,9 +266,8 @@ public class swingMain extends JFrame implements ActionListener {
 		JCheckBoxCustomEx frame1 = new JCheckBoxCustomEx(list);
 		frame1.setVisible(true);
 	}
-
 	protected void actionPerformedBtnNewButton(ActionEvent e) {
-		JRadioBtnEx frame = new JRadioBtnEx();
+		JtextFieldAreaEx frame = new JtextFieldAreaEx();
 		frame.setVisible(true);
 	}
 }
