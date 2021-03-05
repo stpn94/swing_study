@@ -20,12 +20,18 @@ import swing_study.Component.JCheckBoxCustomEx;
 import swing_study.Component.JCheckBoxEx;
 import swing_study.Component.JComponentEX;
 import swing_study.Component.JLableEx;
+import swing_study.Component.JListEx;
+import swing_study.Component.JListEx2;
 import swing_study.Component.JRadioBtnEx;
 import swing_study.Component.JtextFieldAreaEx;
 import swing_study.Layout.FrameLayout;
 import swing_study.Layout.LayoutGuBun;
 import swing_study.frame.ContentPaneEx;
 import swing_study.frame.JFrameEx;
+import javax.swing.JLabel;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import javax.swing.BoxLayout;
 
 public class swingMain extends JFrame implements ActionListener {
 
@@ -46,6 +52,10 @@ public class swingMain extends JFrame implements ActionListener {
 	private JButton btn07;
 	private JPanel pText;
 	private JButton btnNewButton;
+	private JPanel pJList;
+	private JButton btn09;
+	private JButton btn10;
+	private JButton btn11;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -71,7 +81,7 @@ public class swingMain extends JFrame implements ActionListener {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		contentPane.setLayout(new GridLayout(0, 3, 10, 10));
+		contentPane.setLayout(new GridLayout(0, 5, 10, 10));
 
 		btn01 = new JButton("JFreamEx");
 		btn01.addActionListener(this);
@@ -151,12 +161,34 @@ public class swingMain extends JFrame implements ActionListener {
 		pText.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "TextBox", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
 		contentPane.add(pText);
 		
-		btnNewButton = new JButton("New button");
+		btnNewButton = new JButton("JtextfieldEx");
 		btnNewButton.addActionListener(this);
 		pText.add(btnNewButton);
+		
+		pJList = new JPanel();
+		pJList.setBorder(new TitledBorder(null, "JList", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		contentPane.add(pJList);
+		pJList.setLayout(new GridLayout(0, 1, 0, 0));
+		
+		btn09 = new JButton("JList예1");
+		btn09.addActionListener(this);
+		pJList.add(btn09);
+		
+		btn10 = new JButton("JList예2");
+		btn10.addActionListener(this);
+		pJList.add(btn10);
+		
+		btn11 = new JButton("JList예3");
+		pJList.add(btn11);
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btn10) {
+			actionPerformedBtn10(e);
+		}
+		if (e.getSource() == btn09) {
+			actionPerformedBtn09(e);
+		}
 		if (e.getSource() == btnNewButton) {
 			actionPerformedBtnNewButton(e);
 		}
@@ -268,6 +300,14 @@ public class swingMain extends JFrame implements ActionListener {
 	}
 	protected void actionPerformedBtnNewButton(ActionEvent e) {
 		JtextFieldAreaEx frame = new JtextFieldAreaEx();
+		frame.setVisible(true);
+	}
+	protected void actionPerformedBtn09(ActionEvent e) {
+		JListEx frame = new JListEx();
+		frame.setVisible(true);
+	}
+	protected void actionPerformedBtn10(ActionEvent e) {
+		JListEx2 frame = new JListEx2();
 		frame.setVisible(true);
 	}
 }
