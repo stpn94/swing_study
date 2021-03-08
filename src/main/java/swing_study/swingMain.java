@@ -26,11 +26,15 @@ import swing_study.Component.JLableEx;
 import swing_study.Component.JListEx;
 import swing_study.Component.JListEx2;
 import swing_study.Component.JListEx3;
+import swing_study.Component.JSliderEx;
+import swing_study.Component.JSpinnerEx;
+import swing_study.Component.JTabbedPaneEx;
 import swing_study.Component.JtextFieldAreaEx;
 import swing_study.Layout.FrameLayout;
 import swing_study.Layout.LayoutGuBun;
 import swing_study.frame.ContentPaneEx;
 import swing_study.frame.JFrameEx;
+import java.awt.BorderLayout;
 
 public class swingMain extends JFrame implements ActionListener {
 
@@ -59,6 +63,13 @@ public class swingMain extends JFrame implements ActionListener {
 	private JButton btn12;
 	private JButton btn13;
 	private JButton btn14;
+	private JPanel pSliderSpinner;
+	private JPanel pSlider;
+	private JPanel pSpinner;
+	private JButton btn15;
+	private JButton btn16;
+	private JPanel pJTabbedPaneEX;
+	private JButton btn17;
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -201,9 +212,47 @@ public class swingMain extends JFrame implements ActionListener {
 		btn14 = new JButton("JCombo #3");
 		btn14.addActionListener(this);
 		pCombo.add(btn14);
+		
+		pSliderSpinner = new JPanel();
+		contentPane.add(pSliderSpinner);
+		pSliderSpinner.setLayout(new GridLayout(0, 1, 0, 0));
+		
+		pSlider = new JPanel();
+		pSlider.setBorder(new TitledBorder(null, "JSlider", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		pSliderSpinner.add(pSlider);
+		pSlider.setLayout(new BorderLayout(0, 0));
+		
+		btn15 = new JButton("J Slider 예");
+		btn15.addActionListener(this);
+		pSlider.add(btn15, BorderLayout.CENTER);
+		
+		pSpinner = new JPanel();
+		pSpinner.setBorder(new TitledBorder(null, "JSpinner", TitledBorder.LEADING, TitledBorder.TOP, null, null));
+		pSliderSpinner.add(pSpinner);
+		pSpinner.setLayout(new BorderLayout(0, 0));
+		
+		btn16 = new JButton("J Spinner 예");
+		btn16.addActionListener(this);
+		pSpinner.add(btn16, BorderLayout.CENTER);
+		
+		pJTabbedPaneEX = new JPanel();
+		contentPane.add(pJTabbedPaneEX);
+		
+		btn17 = new JButton("JTabbedPane");
+		btn17.addActionListener(this);
+		pJTabbedPaneEX.add(btn17);
 	}
 
 	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == btn17) {
+			actionPerformedBtn17(e);
+		}
+		if (e.getSource() == btn16) {
+			actionPerformedBtn16(e);
+		}
+		if (e.getSource() == btn15) {
+			actionPerformedBtn15(e);
+		}
 		if (e.getSource() == btn14) {
 			actionPerformedBtn14(e);
 		}
@@ -357,6 +406,18 @@ public class swingMain extends JFrame implements ActionListener {
 	}
 	protected void actionPerformedBtn14(ActionEvent e) {
 		JComboBoxEx3 frame = new JComboBoxEx3();
+		frame.setVisible(true);
+	}
+	protected void actionPerformedBtn15(ActionEvent e) {
+		JSliderEx frame = new JSliderEx();
+		frame.setVisible(true);
+	}
+	protected void actionPerformedBtn16(ActionEvent e) {
+		JSpinnerEx frame = new JSpinnerEx();
+		frame.setVisible(true);
+	}
+	protected void actionPerformedBtn17(ActionEvent e) {
+		JTabbedPaneEx frame = new JTabbedPaneEx();
 		frame.setVisible(true);
 	}
 }
