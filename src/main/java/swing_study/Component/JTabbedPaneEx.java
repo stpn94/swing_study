@@ -14,12 +14,18 @@ import javax.swing.border.EmptyBorder;
 
 import swing_study.panel.Department;
 import swing_study.panel.DeptPanel;
+import swing_study.panel.EmployeePanel;
+import swing_study.panel.Title;
+import swing_study.panel.TitlePanel;
 
 public class JTabbedPaneEx extends JFrame implements ActionListener {
 
 	private JPanel contentPane;
 	private JButton btnNewButton;
 	private JTabbedPane tabbedPane;
+	private DeptPanel pDept;
+	private TitlePanel pTitle;
+	private EmployeePanel pEmp;
 
 	
 	public JTabbedPaneEx() {
@@ -27,7 +33,7 @@ public class JTabbedPaneEx extends JFrame implements ActionListener {
 	}
 	private void initialize() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 450, 559);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -36,13 +42,13 @@ public class JTabbedPaneEx extends JFrame implements ActionListener {
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		contentPane.add(tabbedPane, BorderLayout.CENTER);
 		
-		DeptPanel pDept = new DeptPanel();
+		pDept = new DeptPanel();
 		tabbedPane.addTab("부서", null, pDept, "부서 관리");
 		
-		JPanel pTitle = new JPanel();
+		pTitle = new TitlePanel();
 		tabbedPane.addTab("직책", null, pTitle, "직책 관리");
 		
-		JPanel pEmp = new JPanel();
+		pEmp = new EmployeePanel();
 		tabbedPane.addTab("사원", null, pEmp,"사원 관리");
 		
 		JPanel panel = new JPanel();
@@ -63,9 +69,15 @@ public class JTabbedPaneEx extends JFrame implements ActionListener {
 		Component comp =tabbedPane.getSelectedComponent();
 		System.out.println(comp);
 		//getXX()호출
+		//
+		if(comp == pDept) {
 		DeptPanel deptPanel = (DeptPanel) comp;
 		Department department = deptPanel.getDepartment();
-		JOptionPane.showMessageDialog(null, "확인");
-		
+		JOptionPane.showMessageDialog(null, department);
+		} else if(comp == pTitle){
+		TitlePanel titlePanel = (TitlePanel) comp;
+		Title title = titlePanel.getTitle();
+		JOptionPane.showMessageDialog(null, title);
+		}
 	}
 }

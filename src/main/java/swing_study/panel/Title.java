@@ -42,7 +42,7 @@ public class Title {
 
 	@Override
 	public String toString() {
-		return String.format("Title [no=%s, name=%s]", tno, tname);
+		return String.format("%s(%s) ",  tname,tno);
 	}
 	
 	

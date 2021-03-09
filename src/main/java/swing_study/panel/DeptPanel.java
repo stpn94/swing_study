@@ -48,6 +48,7 @@ public class DeptPanel extends JPanel {
 		tfFloor.setColumns(10);
 		add(tfFloor);
 	}
+	
 	public Department getDepartment() {
 		int deptNo =Integer.parseInt(tfDeptNo.getText().trim());
 		String deptName = tfDeptName.getText().trim();
